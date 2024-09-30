@@ -2,15 +2,20 @@ import { fileManager, model } from "src/infra/service/generative-ai";
 import fs from "fs";
 import path from "path";
 import { promisify } from "util";
+import { randomUUID } from "node:crypto";
+
+type ProcessImageResponse = {
+  uri: string;
+  measureValue: number;
+};
 
 const writeFileAsync = promisify(fs.writeFile);
 const unlinkFileAsync = promisify(fs.unlink);
 
 export class ImageProcessingService {
-  async processImage(
-    base64Image: string,
-  ): Promise<{ uri: string; measureValue: number }> {
-    const tempFilePath = path.join(__dirname, "tempImage.jpg");
+  async processImage(base64Image: string): Promise<ProcessImageResponse> {
+    const tempFileName = `${randomUUID()}.jpg`;
+    const tempFilePath = path.join(__dirname, tempFileName);
 
     const base64Data = base64Image.replace(/^data:image\/[a-z]+;base64,/, "");
     const buffer = Buffer.from(base64Data, "base64");
@@ -31,11 +36,12 @@ export class ImageProcessingService {
           },
         },
         {
-          text: "Analise a imagem do medidor que pode ser água ou gás e forneça apenas a leitura de consumo.",
+          text: "Analyze the image of the water or gas meter and return only the consumption reading. The response should contain only the consumption value, without any additional information.",
         },
       ]);
 
       const consumption = resultModel.response.text();
+
       const measureValue = parseInt(consumption.replace(/[^0-9]/g, ""), 10);
 
       return {
