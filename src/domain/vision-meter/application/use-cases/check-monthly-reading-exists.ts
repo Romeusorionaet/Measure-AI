@@ -6,6 +6,7 @@ import { ReadingTypeAlreadyExistsError } from "./errors/reading-type-already-exi
 interface CheckMonthlyReadingExistsUseCaseRequest {
   measureDatetime: string;
   measureType: MeasureType;
+  customerCode: string;
 }
 
 type CheckMonthlyReadingExistsUseCaseResponse = Either<
@@ -19,10 +20,12 @@ export class CheckMonthlyReadingExistsUseCase {
   async execute({
     measureType,
     measureDatetime,
+    customerCode,
   }: CheckMonthlyReadingExistsUseCaseRequest): Promise<CheckMonthlyReadingExistsUseCaseResponse> {
-    const existMeasure = await this.measureRepository.findByTypeAndDateTime(
+    const existMeasure = await this.measureRepository.findByMatchParams(
       measureType,
       measureDatetime,
+      customerCode,
     );
 
     if (existMeasure) {

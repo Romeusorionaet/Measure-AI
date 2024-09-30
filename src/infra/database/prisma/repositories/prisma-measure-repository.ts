@@ -5,9 +5,20 @@ import { prisma } from "src/infra/service/prisma";
 import { PrismaMeasureMapper } from "../mappers/prisma-measure-mapper";
 
 export class PrismaMeasureRepository implements MeasureRepository {
-  async findByTypeAndDateTime(
+  async create(measure: Measure): Promise<{ measureId: string }> {
+    const data = PrismaMeasureMapper.toPrisma(measure);
+
+    const result = await prisma.measure.create({
+      data,
+    });
+
+    return { measureId: result.id };
+  }
+
+  async findByMatchParams(
     measureType: MeasureType,
     measureDatetime: string,
+    customerCode: string,
   ): Promise<boolean> {
     const dateObj = new Date(measureDatetime);
 
@@ -20,6 +31,9 @@ export class PrismaMeasureRepository implements MeasureRepository {
 
     const result = await prisma.measure.findFirst({
       where: {
+        Customer: {
+          customerCode,
+        },
         measureType,
         measureDatetime: {
           gte: startOfMonth,
@@ -33,16 +47,6 @@ export class PrismaMeasureRepository implements MeasureRepository {
     }
 
     return true;
-  }
-
-  async create(measure: Measure): Promise<{ measureId: string }> {
-    const data = PrismaMeasureMapper.toPrisma(measure);
-
-    const result = await prisma.measure.create({
-      data,
-    });
-
-    return { measureId: result.id };
   }
 
   async findById(measureId: string): Promise<Measure | null> {

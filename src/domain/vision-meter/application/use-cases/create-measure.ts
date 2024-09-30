@@ -33,6 +33,7 @@ export class CreateMeasureUseCase {
     measureType,
     measureValue,
   }: CreateMeasureUseCaseRequest): Promise<CreateMeasureUseCaseResponse> {
+    // TODO esta criando dois custumer, 1 para cada type, preciso garantir que seja só 1
     const customer = Customer.create({
       customerCode,
     });

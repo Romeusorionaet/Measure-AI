@@ -27,6 +27,7 @@ export async function upload(request: FastifyRequest, reply: FastifyReply) {
     const result = await checkMonthlyReadingExistsUseCase.execute({
       measureType: measure_type,
       measureDatetime: measure_datetime,
+      customerCode: customer_code,
     });
 
     if (result.isLeft()) {
