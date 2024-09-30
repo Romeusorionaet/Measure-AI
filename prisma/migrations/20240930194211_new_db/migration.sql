@@ -14,6 +14,7 @@ CREATE TABLE "measures" (
     "id" TEXT NOT NULL,
     "measure_datetime" TIMESTAMP(3) NOT NULL,
     "measure_type" "MeasureType" NOT NULL,
+    "measure_value" INTEGER NOT NULL,
     "has_confirmed" BOOLEAN NOT NULL,
     "image_url" TEXT NOT NULL,
     "updated_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
@@ -31,9 +32,6 @@ CREATE UNIQUE INDEX "customers_customer_code_key" ON "customers"("customer_code"
 
 -- CreateIndex
 CREATE UNIQUE INDEX "measures_id_key" ON "measures"("id");
-
--- CreateIndex
-CREATE UNIQUE INDEX "measures_measure_datetime_key" ON "measures"("measure_datetime");
 
 -- CreateIndex
 CREATE INDEX "measures_customerId_measure_type_idx" ON "measures"("customerId", "measure_type");

@@ -14,7 +14,7 @@ enum MeasureType {
 
 model Customer {
   id           String    @id @unique @default(uuid())
-  customerCode String    @map("customer_code")
+  customerCode String    @unique @map("customer_code")
   measures     Measure[]
 
   @@map("customers")
