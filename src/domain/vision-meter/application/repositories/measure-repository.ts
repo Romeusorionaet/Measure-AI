@@ -7,4 +7,6 @@ export interface MeasureRepository {
     measureType: MeasureType,
     measureDatetime: string,
   ): Promise<boolean>;
+  findById(measureId: string): Promise<Measure | null>;
+  update(measure: Measure): Promise<void>;
 }

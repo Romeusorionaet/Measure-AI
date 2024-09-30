@@ -44,4 +44,25 @@ export class PrismaMeasureRepository implements MeasureRepository {
 
     return { measureId: result.id };
   }
+
+  async findById(measureId: string): Promise<Measure | null> {
+    const measure = await prisma.measure.findUnique({
+      where: { id: measureId },
+    });
+
+    if (!measure) {
+      return null;
+    }
+
+    return PrismaMeasureMapper.toDomain(measure);
+  }
+
+  async update(measure: Measure): Promise<void> {
+    const data = PrismaMeasureMapper.toPrisma(measure);
+
+    await prisma.measure.update({
+      where: { id: data.id },
+      data,
+    });
+  }
 }
