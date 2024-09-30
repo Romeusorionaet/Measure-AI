@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  apistore:
+    container_name: measureAi-api-sp-pg
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USERNAME: postgres
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: measureAI

@@ -1,0 +1,32 @@
+{
+  "name": "measure-ai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/infra/server.ts",
+    "lint:fix": "eslint src --ext .ts --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/multipart": "^9.0.1",
+    "@google/generative-ai": "^0.20.0",
+    "@prisma/client": "^5.20.0",
+    "dotenv": "^16.4.5",
+    "fastify": "^5.0.0",
+    "measure-ai": "file:",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.2",
+    "uuid": "^10.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.1.0",
+    "@types/node": "^22.7.4",
+    "@types/uuid": "^10.0.0",
+    "eslint": "^8.56.0",
+    "prisma": "^5.20.0"
+  }
+}
