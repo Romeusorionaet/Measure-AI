@@ -1,4 +1,4 @@
-import { CustomerRepository } from "src/domain/vision-meter/application/repositories/cusotmer-repository";
+import { CustomerRepository } from "src/domain/vision-meter/application/repositories/customer-repository";
 import { Customer } from "src/domain/vision-meter/enterprise/entities/customer";
 import { prisma } from "src/infra/service/prisma";
 import { PrismaCustomerMapper } from "../mappers/prisma-customer-mapper";
@@ -37,5 +37,17 @@ export class PrismaCustomerRepository implements CustomerRepository {
     const measures = customer.measures.map(PrismaMeasureMapper.toDomain);
 
     return measures;
+  }
+
+  async findByCode(customerCode: string): Promise<Customer | null> {
+    const customer = await prisma.customer.findUnique({
+      where: { customerCode },
+    });
+
+    if (!customer) {
+      return null;
+    }
+
+    return PrismaCustomerMapper.toDomain(customer);
   }
 }

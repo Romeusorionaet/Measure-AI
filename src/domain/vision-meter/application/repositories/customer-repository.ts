@@ -8,4 +8,5 @@ export interface CustomerRepository {
     customerCode: string,
     measureType?: MeasureType,
   ): Promise<Measure[]>;
+  findByCode(customerCode: string): Promise<Customer | null>;
 }

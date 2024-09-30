@@ -1,9 +1,8 @@
 import { Either, right } from "src/core/either";
 import { MeasureType } from "../../enterprise/entities/measure-type";
 import { MeasureRepository } from "../repositories/measure-repository";
-import { Customer } from "../../enterprise/entities/customer";
-import { CustomerRepository } from "../repositories/cusotmer-repository";
 import { Measure } from "../../enterprise/entities/measure";
+import { CreateCustomerUseCase } from "./create-customer";
 
 interface CreateMeasureUseCaseRequest {
   imageUrl: string;
@@ -23,7 +22,7 @@ type CreateMeasureUseCaseResponse = Either<
 export class CreateMeasureUseCase {
   constructor(
     private measureRepository: MeasureRepository,
-    private customerRepository: CustomerRepository,
+    private createCustomerUseCase: CreateCustomerUseCase,
   ) {}
 
   async execute({
@@ -33,10 +32,7 @@ export class CreateMeasureUseCase {
     measureType,
     measureValue,
   }: CreateMeasureUseCaseRequest): Promise<CreateMeasureUseCaseResponse> {
-    // TODO esta criando dois custumer, 1 para cada type, preciso garantir que seja só 1
-    const customer = Customer.create({
-      customerCode,
-    });
+    const customer = await this.createCustomerUseCase.execute({ customerCode });
 
     const measure = Measure.create({
       customerId: customer.id,
@@ -46,8 +42,6 @@ export class CreateMeasureUseCase {
       measureType,
       measureValue,
     });
-
-    await this.customerRepository.create(customer);
 
     const { measureId } = await this.measureRepository.create(measure);
 
