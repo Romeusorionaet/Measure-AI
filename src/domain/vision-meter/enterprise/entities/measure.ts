@@ -7,6 +7,7 @@ export interface MeasureProps {
   customerId: UniqueEntityID;
   measureDatetime: string;
   measureType: MeasureType;
+  measureValue: number;
   hasConfirmed: boolean;
   imageUrl: string;
   createdAt: Date;
@@ -24,6 +25,10 @@ export class Measure extends Entity<MeasureProps> {
 
   get measureType() {
     return this.props.measureType;
+  }
+
+  get measureValue() {
+    return this.props.measureValue;
   }
 
   get hasConfirmed() {

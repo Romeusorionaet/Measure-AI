@@ -10,6 +10,7 @@ interface CreateMeasureUseCaseRequest {
   customerCode: string;
   measureDatetime: string;
   measureType: MeasureType;
+  measureValue: number;
 }
 
 type CreateMeasureUseCaseResponse = Either<
@@ -30,6 +31,7 @@ export class CreateMeasureUseCase {
     customerCode,
     measureDatetime,
     measureType,
+    measureValue,
   }: CreateMeasureUseCaseRequest): Promise<CreateMeasureUseCaseResponse> {
     const customer = Customer.create({
       customerCode,
@@ -41,6 +43,7 @@ export class CreateMeasureUseCase {
       imageUrl,
       measureDatetime,
       measureType,
+      measureValue,
     });
 
     await this.customerRepository.create(customer);

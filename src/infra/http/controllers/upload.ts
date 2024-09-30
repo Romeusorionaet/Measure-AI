@@ -54,6 +54,7 @@ export async function upload(request: FastifyRequest, reply: FastifyReply) {
       imageUrl: uri, // TODO uri is a temp image, i need to save the image and get the permanent url
       measureDatetime: measure_datetime,
       measureType: measure_type,
+      measureValue,
     });
 
     return reply.status(200).send({

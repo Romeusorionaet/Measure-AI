@@ -14,6 +14,7 @@ export class PrismaMeasureMapper {
         imageUrl: raw.imageUrl,
         measureDatetime: raw.measureDatetime.toISOString(),
         measureType,
+        measureValue: raw.measureValue,
         createdAt: raw.createdAt,
         updatedAt: raw.updatedAt,
       },
@@ -29,6 +30,7 @@ export class PrismaMeasureMapper {
       imageUrl: measure.imageUrl,
       measureDatetime: measure.measureDatetime,
       measureType: measure.measureType,
+      measureValue: measure.measureValue,
       createdAt: measure.createdAt,
       updatedAt: measure.updatedAt,
     };

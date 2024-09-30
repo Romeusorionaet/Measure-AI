@@ -24,6 +24,7 @@ model Measure {
   id              String      @id @unique @default(uuid())
   measureDatetime DateTime    @unique @map("measure_datetime")
   measureType     MeasureType @map("measure_type")
+  measureValue    Int         @map("measure_value")
   hasConfirmed    Boolean     @map("has_confirmed")
   imageUrl        String      @map("image_url")
   updatedAt       DateTime?   @default(now()) @updatedAt @map("updated_at")
