@@ -1,8 +1,8 @@
-import { MeasureRepository } from "src/domain/vision-meter/application/repositories/measure-repository";
-import { Measure } from "src/domain/vision-meter/enterprise/entities/measure";
-import { MeasureType } from "src/domain/vision-meter/enterprise/entities/measure-type";
+import { MeasureRepository } from "@/domain/vision-meter/application/repositories/measure-repository";
 import { InMemoryMeasureDataRepository } from "./in-memory-measures-data-repository";
-import { CustomerRepository } from "src/domain/vision-meter/application/repositories/customer-repository";
+import { CustomerRepository } from "@/domain/vision-meter/application/repositories/customer-repository";
+import { Measure } from "@/domain/vision-meter/enterprise/entities/measure";
+import { MeasureType } from "@/domain/vision-meter/enterprise/entities/measure-type";
 
 export class InMemoryMeasuresRepository implements MeasureRepository {
   constructor(

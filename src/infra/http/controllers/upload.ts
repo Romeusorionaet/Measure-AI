@@ -1,10 +1,10 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import { makeCheckMonthlyReadingExistsUseCase } from "src/domain/vision-meter/application/use-cases/factories/make-check-monthly-exists-use-case";
-import { makeCreateMeasureUseCase } from "src/domain/vision-meter/application/use-cases/factories/make-create-measure-use-case";
 import { uploadBodySchema } from "../schemas/upload-body-schema";
-import { ReadingTypeAlreadyExistsError } from "src/domain/vision-meter/application/use-cases/errors/reading-type-already-exits-error";
+import { makeCheckMonthlyReadingExistsUseCase } from "@/domain/vision-meter/application/use-cases/factories/make-check-monthly-exists-use-case";
+import { ReadingTypeAlreadyExistsError } from "@/domain/vision-meter/application/use-cases/errors/reading-type-already-exits-error";
+import { ImageProcessingService } from "@/infra/service/image-processing-service";
+import { makeCreateMeasureUseCase } from "@/domain/vision-meter/application/use-cases/factories/make-create-measure-use-case";
 import { z } from "zod";
-import { ImageProcessingService } from "src/infra/service/image-processing-service";
 
 export async function upload(request: FastifyRequest, reply: FastifyReply) {
   try {

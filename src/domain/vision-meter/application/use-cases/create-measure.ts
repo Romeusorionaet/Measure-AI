@@ -1,4 +1,4 @@
-import { Either, right } from "src/core/either";
+import { Either, right } from "@/core/either";
 import { MeasureType } from "../../enterprise/entities/measure-type";
 import { MeasureRepository } from "../repositories/measure-repository";
 import { Measure } from "../../enterprise/entities/measure";

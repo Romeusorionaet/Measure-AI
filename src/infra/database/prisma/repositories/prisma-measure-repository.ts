@@ -1,8 +1,8 @@
-import { MeasureRepository } from "src/domain/vision-meter/application/repositories/measure-repository";
-import { Measure } from "src/domain/vision-meter/enterprise/entities/measure";
-import { MeasureType } from "src/domain/vision-meter/enterprise/entities/measure-type";
-import { prisma } from "src/infra/service/prisma";
+import { MeasureRepository } from "@/domain/vision-meter/application/repositories/measure-repository";
 import { PrismaMeasureMapper } from "../mappers/prisma-measure-mapper";
+import { Measure } from "@/domain/vision-meter/enterprise/entities/measure";
+import { MeasureType } from "@/domain/vision-meter/enterprise/entities/measure-type";
+import { prisma } from "@/infra/service/prisma";
 
 export class PrismaMeasureRepository implements MeasureRepository {
   async create(measure: Measure): Promise<{ measureId: string }> {

@@ -4,9 +4,9 @@ import { ListMeasuresUseCase } from "./list-measures";
 import { makeCustomer } from "test/factories/make-customer";
 import { makeMeasure } from "test/factories/make-measure";
 import { InMemoryMeasuresRepository } from "test/repositories/in-memory-measures-repository";
-import { UniqueEntityID } from "src/core/entities/unique-entity-id";
 import { MeasureType } from "../../enterprise/entities/measure-type";
 import { MeasuresNotFoundError } from "./errors/measures-not-found-error";
+import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 
 let inMemoryCustomersRepository: InMemoryCustomersRepository;
 let inMemoryMeasuresRepository: InMemoryMeasuresRepository;

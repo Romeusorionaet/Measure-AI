@@ -1,8 +1,8 @@
-import { UniqueEntityID } from "src/core/entities/unique-entity-id";
+import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 import {
   Customer,
   CustomerProps,
-} from "src/domain/vision-meter/enterprise/entities/customer";
+} from "@/domain/vision-meter/enterprise/entities/customer";
 
 export function makeCustomer(
   override: Partial<CustomerProps> = {},

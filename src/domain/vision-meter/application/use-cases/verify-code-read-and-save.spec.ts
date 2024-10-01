@@ -3,11 +3,11 @@ import { InMemoryMeasureDataRepository } from "test/repositories/in-memory-measu
 import { InMemoryMeasuresRepository } from "test/repositories/in-memory-measures-repository";
 import { VerifyCodeReadAndSaveUseCase } from "./verify-code-read-and-save";
 import { makeCustomer } from "test/factories/make-customer";
-import { UniqueEntityID } from "src/core/entities/unique-entity-id";
 import { makeMeasure } from "test/factories/make-measure";
 import { MeasureType } from "../../enterprise/entities/measure-type";
 import { ReadNotFoundError } from "./errors/read-not-found-error";
 import { ReadingAlreadyConfirmedError } from "./errors/reading-already-confirmed-error";
+import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 
 let inMemoryCustomersRepository: InMemoryCustomersRepository;
 let measureData: InMemoryMeasureDataRepository;

@@ -1,4 +1,4 @@
-import { PrismaMeasureRepository } from "src/infra/database/prisma/repositories/prisma-measure-repository";
+import { PrismaMeasureRepository } from "@/infra/database/prisma/repositories/prisma-measure-repository";
 import { CheckMonthlyReadingExistsUseCase } from "../check-monthly-reading-exists";
 
 export function makeCheckMonthlyReadingExistsUseCase() {

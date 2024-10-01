@@ -1,4 +1,4 @@
-import { Either, left, right } from "src/core/either";
+import { Either, left, right } from "@/core/either";
 import { MeasureRepository } from "../repositories/measure-repository";
 import { ReadNotFoundError } from "./errors/read-not-found-error";
 import { ReadingAlreadyConfirmedError } from "./errors/reading-already-confirmed-error";

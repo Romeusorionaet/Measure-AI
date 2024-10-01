@@ -1,9 +1,9 @@
 import { FastifyRequest, FastifyReply } from "fastify";
-import { MeasuresNotFoundError } from "src/domain/vision-meter/application/use-cases/errors/measures-not-found-error";
-import { makeListMeasuresUseCase } from "src/domain/vision-meter/application/use-cases/factories/make-list-measures-use-case";
 import { querySchema } from "../schemas/query-schema";
 import { z } from "zod";
 import { MeasurePresenter } from "../presenters/measure-presenter";
+import { makeListMeasuresUseCase } from "@/domain/vision-meter/application/use-cases/factories/make-list-measures-use-case";
+import { MeasuresNotFoundError } from "@/domain/vision-meter/application/use-cases/errors/measures-not-found-error";
 
 interface ListMeasuresParams {
   customer_code: string;

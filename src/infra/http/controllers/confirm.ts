@@ -1,9 +1,9 @@
 import { FastifyRequest, FastifyReply } from "fastify";
 import { confirmBodySchema } from "../schemas/confirm-body-schema";
+import { makeVerifyCodeReadAndSaveUseCase } from "@/domain/vision-meter/application/use-cases/factories/make-verify-code-read-and-save-use-case";
+import { ReadNotFoundError } from "@/domain/vision-meter/application/use-cases/errors/read-not-found-error";
+import { ReadingAlreadyConfirmedError } from "@/domain/vision-meter/application/use-cases/errors/reading-already-confirmed-error";
 import { z } from "zod";
-import { makeVerifyCodeReadAndSaveUseCase } from "src/domain/vision-meter/application/use-cases/factories/make-verify-code-read-and-save-use-case";
-import { ReadNotFoundError } from "src/domain/vision-meter/application/use-cases/errors/read-not-found-error";
-import { ReadingAlreadyConfirmedError } from "src/domain/vision-meter/application/use-cases/errors/reading-already-confirmed-error";
 
 export async function confirm(request: FastifyRequest, reply: FastifyReply) {
   try {

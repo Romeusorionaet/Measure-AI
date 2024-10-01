@@ -1,7 +1,7 @@
+import { UniqueEntityID } from "@/core/entities/unique-entity-id";
+import { Measure } from "@/domain/vision-meter/enterprise/entities/measure";
+import { MeasureType } from "@/domain/vision-meter/enterprise/entities/measure-type";
 import { Prisma, Measure as PrismaMeasure } from "@prisma/client";
-import { UniqueEntityID } from "src/core/entities/unique-entity-id";
-import { Measure } from "src/domain/vision-meter/enterprise/entities/measure";
-import { MeasureType } from "src/domain/vision-meter/enterprise/entities/measure-type";
 
 export class PrismaMeasureMapper {
   static toDomain(raw: PrismaMeasure): Measure {

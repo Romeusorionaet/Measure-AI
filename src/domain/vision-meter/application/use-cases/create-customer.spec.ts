@@ -2,7 +2,7 @@ import { InMemoryCustomersRepository } from "test/repositories/in-memory-custome
 import { CreateCustomerUseCase } from "./create-customer";
 import { InMemoryMeasureDataRepository } from "test/repositories/in-memory-measures-data-repository";
 import { makeCustomer } from "test/factories/make-customer";
-import { UniqueEntityID } from "src/core/entities/unique-entity-id";
+import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 
 let inMemoryCustomersRepository: InMemoryCustomersRepository;
 let measureData: InMemoryMeasureDataRepository;

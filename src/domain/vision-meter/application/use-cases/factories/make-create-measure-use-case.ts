@@ -1,7 +1,7 @@
-import { PrismaMeasureRepository } from "src/infra/database/prisma/repositories/prisma-measure-repository";
 import { CreateMeasureUseCase } from "../create-measure";
-import { PrismaCustomerRepository } from "src/infra/database/prisma/repositories/prisma-customer-repository";
 import { CreateCustomerUseCase } from "../create-customer";
+import { PrismaMeasureRepository } from "@/infra/database/prisma/repositories/prisma-measure-repository";
+import { PrismaCustomerRepository } from "@/infra/database/prisma/repositories/prisma-customer-repository";
 
 export function makeCreateMeasureUseCase() {
   const measureRepository = new PrismaMeasureRepository();

@@ -1,9 +1,9 @@
-import { UniqueEntityID } from "src/core/entities/unique-entity-id";
+import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 import {
   Measure,
   MeasureProps,
-} from "src/domain/vision-meter/enterprise/entities/measure";
-import { MeasureType } from "src/domain/vision-meter/enterprise/entities/measure-type";
+} from "@/domain/vision-meter/enterprise/entities/measure";
+import { MeasureType } from "@/domain/vision-meter/enterprise/entities/measure-type";
 
 export function makeMeasure(
   override: Partial<MeasureProps> = {},

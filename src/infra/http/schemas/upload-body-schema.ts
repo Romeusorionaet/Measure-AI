@@ -1,4 +1,4 @@
-import { MeasureType } from "src/domain/vision-meter/enterprise/entities/measure-type";
+import { MeasureType } from "@/domain/vision-meter/enterprise/entities/measure-type";
 import { z } from "zod";
 
 export const uploadBodySchema = z.object({

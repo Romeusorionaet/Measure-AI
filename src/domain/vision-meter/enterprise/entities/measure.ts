@@ -1,7 +1,7 @@
-import { Optional } from "src/core/@types/optional";
-import { Entity } from "src/core/entities/entity";
-import { UniqueEntityID } from "src/core/entities/unique-entity-id";
+import { UniqueEntityID } from "@/core/entities/unique-entity-id";
 import { MeasureType } from "./measure-type";
+import { Entity } from "@/core/entities/entity";
+import { Optional } from "@/core/@types/optional";
 
 export interface MeasureProps {
   customerId: UniqueEntityID;

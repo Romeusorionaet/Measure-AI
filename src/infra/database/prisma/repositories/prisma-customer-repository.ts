@@ -1,10 +1,10 @@
-import { CustomerRepository } from "src/domain/vision-meter/application/repositories/customer-repository";
-import { Customer } from "src/domain/vision-meter/enterprise/entities/customer";
-import { prisma } from "src/infra/service/prisma";
+import { CustomerRepository } from "@/domain/vision-meter/application/repositories/customer-repository";
 import { PrismaCustomerMapper } from "../mappers/prisma-customer-mapper";
 import { PrismaMeasureMapper } from "../mappers/prisma-measure-mapper";
-import { MeasureType } from "src/domain/vision-meter/enterprise/entities/measure-type";
-import { Measure } from "src/domain/vision-meter/enterprise/entities/measure";
+import { Customer } from "@/domain/vision-meter/enterprise/entities/customer";
+import { prisma } from "@/infra/service/prisma";
+import { MeasureType } from "@/domain/vision-meter/enterprise/entities/measure-type";
+import { Measure } from "@/domain/vision-meter/enterprise/entities/measure";
 
 export class PrismaCustomerRepository implements CustomerRepository {
   async create(customer: Customer): Promise<void> {

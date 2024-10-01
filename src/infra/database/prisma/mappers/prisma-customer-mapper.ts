@@ -1,6 +1,6 @@
+import { UniqueEntityID } from "@/core/entities/unique-entity-id";
+import { Customer } from "@/domain/vision-meter/enterprise/entities/customer";
 import { Prisma, Customer as PrismaCustomer } from "@prisma/client";
-import { UniqueEntityID } from "src/core/entities/unique-entity-id";
-import { Customer } from "src/domain/vision-meter/enterprise/entities/customer";
 
 export class PrismaCustomerMapper {
   static toDomain(raw: PrismaCustomer): Customer {

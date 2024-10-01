@@ -1,7 +1,7 @@
-import { Either, left, right } from "src/core/either";
 import { MeasureRepository } from "../repositories/measure-repository";
 import { MeasureType } from "../../enterprise/entities/measure-type";
 import { ReadingTypeAlreadyExistsError } from "./errors/reading-type-already-exits-error";
+import { Either, left, right } from "@/core/either";
 
 interface CheckMonthlyReadingExistsUseCaseRequest {
   measureDatetime: string;

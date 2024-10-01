@@ -1,8 +1,8 @@
-import { CustomerRepository } from "src/domain/vision-meter/application/repositories/customer-repository";
-import { Customer } from "src/domain/vision-meter/enterprise/entities/customer";
-import { Measure } from "src/domain/vision-meter/enterprise/entities/measure";
-import { MeasureType } from "src/domain/vision-meter/enterprise/entities/measure-type";
+import { CustomerRepository } from "@/domain/vision-meter/application/repositories/customer-repository";
 import { InMemoryMeasureDataRepository } from "./in-memory-measures-data-repository";
+import { Customer } from "@/domain/vision-meter/enterprise/entities/customer";
+import { MeasureType } from "@/domain/vision-meter/enterprise/entities/measure-type";
+import { Measure } from "@/domain/vision-meter/enterprise/entities/measure";
 
 export class InMemoryCustomersRepository implements CustomerRepository {
   public customers: Customer[] = [];

@@ -1,4 +1,4 @@
-import { Measure } from "src/domain/vision-meter/enterprise/entities/measure";
+import { Measure } from "@/domain/vision-meter/enterprise/entities/measure";
 
 export class MeasurePresenter {
   static toHTTP(measure: Measure) {

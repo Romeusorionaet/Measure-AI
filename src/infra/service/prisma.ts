@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { config } from "dotenv";
-import { env } from "src/infra/env";
+import { env } from "../env";
 
 config();
 console.log("Node env:", env.NODE_ENV);

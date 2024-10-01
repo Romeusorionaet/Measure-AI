@@ -1,8 +1,8 @@
-import { fileManager, model } from "src/infra/service/generative-ai";
 import fs from "fs";
 import path from "path";
 import { promisify } from "util";
 import { randomUUID } from "node:crypto";
+import { fileManager, model } from "./generative-ai";
 
 type ProcessImageResponse = {
   uri: string;

@@ -1,4 +1,4 @@
-import { Either, left, right } from "src/core/either";
+import { Either, left, right } from "@/core/either";
 import { Measure } from "../../enterprise/entities/measure";
 import { MeasuresNotFoundError } from "./errors/measures-not-found-error";
 import { MeasureType } from "../../enterprise/entities/measure-type";
