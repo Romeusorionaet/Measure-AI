@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prebuild": "prisma generate",
     "dev": "tsx watch src/infra/server.ts",
     "build": "tsup src",
     "start": "node dist/infra/server.js",
@@ -21,6 +22,7 @@
     "dotenv": "^16.4.5",
     "fastify": "^5.0.0",
     "measure-ai": "file:",
+    "tsup": "^8.3.0",
     "tsx": "^4.19.1",
     "typescript": "^5.6.2",
     "zod": "^3.23.8"

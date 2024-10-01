@@ -1,12 +1,41 @@
-version: "3.8"
-
 services:
-  apistore:
-    container_name: measureAi-api-sp-pg
-    image: bitnami/postgresql
+  app:
+    container_name: measureAi-api-app
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - 5432:5432
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      WAIT_HOSTS: postgres:5432
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    networks:
+      - app-network
+
+  postgres:
+    container_name: measureAi-api-sp-pg
+    hostname: postgres
+    image: bitnami/postgresql:latest
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: docker
       POSTGRES_DB: measureAI
+    volumes:
+      - pgdata:/bitnami/postgresql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  pgdata:
