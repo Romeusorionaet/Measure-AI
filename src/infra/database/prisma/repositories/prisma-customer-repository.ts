@@ -7,8 +7,8 @@ import { MeasureType } from "src/domain/vision-meter/enterprise/entities/measure
 import { Measure } from "src/domain/vision-meter/enterprise/entities/measure";
 
 export class PrismaCustomerRepository implements CustomerRepository {
-  async create(customerCode: Customer): Promise<void> {
-    const data = PrismaCustomerMapper.toPrisma(customerCode);
+  async create(customer: Customer): Promise<void> {
+    const data = PrismaCustomerMapper.toPrisma(customer);
 
     await prisma.customer.create({
       data,

@@ -7,6 +7,8 @@
     "dev": "tsx watch src/infra/server.ts",
     "build": "tsup src",
     "start": "node dist/infra/server.js",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest",
     "lint:fix": "eslint src --ext .ts --fix"
   },
   "keywords": [],
@@ -21,14 +23,17 @@
     "measure-ai": "file:",
     "tsx": "^4.19.1",
     "typescript": "^5.6.2",
-    "uuid": "^10.0.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.1.0",
     "@types/node": "^22.7.4",
-    "@types/uuid": "^10.0.0",
+    "@types/supertest": "^6.0.2",
     "eslint": "^8.56.0",
-    "prisma": "^5.20.0"
+    "prisma": "^5.20.0",
+    "supertest": "^7.0.0",
+    "unplugin-swc": "^1.5.1",
+    "vite-tsconfig-paths": "^4.3.1",
+    "vitest": "^2.1.1"
   }
 }
