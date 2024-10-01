@@ -15,7 +15,7 @@ const unlinkFileAsync = promisify(fs.unlink);
 export class ImageProcessingService {
   async processImage(base64Image: string): Promise<ProcessImageResponse> {
     const tempFileName = `${randomUUID()}.jpg`;
-    const tempFilePath = path.join(__dirname, tempFileName);
+    const tempFilePath = path.join(__dirname, `../../../temp/${tempFileName}`);
 
     const base64Data = base64Image.replace(/^data:image\/[a-z]+;base64,/, "");
     const buffer = Buffer.from(base64Data, "base64");
