@@ -11,11 +11,15 @@ type ProcessImageResponse = {
 
 const writeFileAsync = promisify(fs.writeFile);
 const unlinkFileAsync = promisify(fs.unlink);
+const mkdirAsync = promisify(fs.mkdir);
 
 export class ImageProcessingService {
   async processImage(base64Image: string): Promise<ProcessImageResponse> {
     const tempFileName = `${randomUUID()}.jpg`;
-    const tempFilePath = path.join(__dirname, `../../../temp/${tempFileName}`);
+    const tempDirPath = path.join(__dirname, "../../../temp");
+    const tempFilePath = path.join(tempDirPath, tempFileName);
+
+    await mkdirAsync(tempDirPath, { recursive: true });
 
     const base64Data = base64Image.replace(/^data:image\/[a-z]+;base64,/, "");
     const buffer = Buffer.from(base64Data, "base64");
