@@ -7,7 +7,14 @@ services:
     ports:
       - "3000:3000"
     environment:
+      PORT: 3000
       NODE_ENV: production
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: docker
+      DB_NAME: measureAI
+      DATABASE_URL: "postgresql://postgres:docker@postgres:5432/measure-ai?schema=public"
       WAIT_HOSTS: postgres:5432
     depends_on:
       - postgres
