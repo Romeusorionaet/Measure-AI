@@ -28,14 +28,9 @@ services:
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: docker
       POSTGRES_DB: measureAI
-    volumes:
-      - pgdata:/bitnami/postgresql
     networks:
       - app-network
 
 networks:
   app-network:
     driver: bridge
-
-volumes:
-  pgdata:
